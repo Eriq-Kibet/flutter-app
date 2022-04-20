@@ -1,6 +1,9 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:myapp/home/food_page_body.dart';
 import 'package:myapp/widgets/big_text.dart';
+import 'package:myapp/widgets/small_text.dart';
 
 class MainFoodPage extends StatefulWidget {
   const MainFoodPage({Key? key}) : super(key: key);
@@ -23,7 +26,20 @@ class _MainFoodPageState extends State<MainFoodPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
-                    children: [BigText(text: "Kenya"), Text("City")],
+                    children: [
+                      BigText(
+                        text: "Kenya",
+                      ),
+                      Row(
+                        children: [
+                          SmallText(
+                            text: "Nairobi",
+                            color: Colors.black54,
+                          ),
+                          Icon(Icons.arrow_drop_down_rounded)
+                        ],
+                      )
+                    ],
                   ),
                   Container(
                     width: 45,
@@ -38,7 +54,8 @@ class _MainFoodPageState extends State<MainFoodPage> {
                   )
                 ]),
           ),
-        )
+        ),
+        FoodPageBody(),
       ],
     ));
   }
