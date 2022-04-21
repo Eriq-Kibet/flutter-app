@@ -50,7 +50,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                     ),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                        color: Colors.blue),
+                        color: const Color(0xFF89dad0)),
                   )
                 ]),
           ),
