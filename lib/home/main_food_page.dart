@@ -15,6 +15,7 @@ class MainFoodPage extends StatefulWidget {
 class _MainFoodPageState extends State<MainFoodPage> {
   @override
   Widget build(BuildContext context) {
+    print("Screen size : " + MediaQuery.of(context).size.width.toString());
     return Scaffold(
         body: Column(
       children: [

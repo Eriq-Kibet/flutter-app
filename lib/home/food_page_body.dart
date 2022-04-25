@@ -93,7 +93,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             margin: const EdgeInsets.only(left: 10, right: 10),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
-                // color: index.isEven ? Color(0xFF69c5df) : Color(0xFF9294cc),
+                color: index.isEven ? Color(0xFF69c5df) : Color(0xFF9294cc),
                 image: const DecorationImage(
                     fit: BoxFit.cover,
                     image: AssetImage('assets/image/food1.jpg'))),
