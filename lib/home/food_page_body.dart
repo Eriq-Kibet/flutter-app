@@ -1,3 +1,4 @@
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/widgets/big_text.dart';
 import 'package:myapp/widgets/icons_and_text_widget.dart';
@@ -31,15 +32,30 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // color: Colors.redAccent,
-      height: 320,
-      child: PageView.builder(
-          controller: pageController,
-          itemCount: 5,
-          itemBuilder: (context, position) {
-            return _buildPageItem(position);
-          }),
+    return Column(
+      children: [
+        Container(
+          // color: Colors.redAccent,
+          height: 320,
+          child: PageView.builder(
+              controller: pageController,
+              itemCount: 5,
+              itemBuilder: (context, position) {
+                return _buildPageItem(position);
+              }),
+        ),
+        new DotsIndicator(
+          dotsCount: 5,
+          position: _currPageValue,
+          decorator: DotsDecorator(
+            activeColor: const Color(0xFF89dad0),
+            size: const Size.square(9.0),
+            activeSize: const Size(18.0, 9.0),
+            activeShape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5.0)),
+          ),
+        )
+      ],
     );
   }
 
@@ -74,11 +90,11 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         children: [
           Container(
             height: 220,
-            margin: EdgeInsets.only(left: 10, right: 10),
+            margin: const EdgeInsets.only(left: 10, right: 10),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
-                color: index.isEven ? Color(0xFF69c5df) : Color(0xFF9294cc),
-                image: DecorationImage(
+                // color: index.isEven ? Color(0xFF69c5df) : Color(0xFF9294cc),
+                image: const DecorationImage(
                     fit: BoxFit.cover,
                     image: AssetImage('assets/image/food1.jpg'))),
           ),
@@ -111,6 +127,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                           height: 10,
                         ),
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Wrap(
                               children: List.generate(
@@ -121,17 +138,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                         size: 15,
                                       )),
                             ),
-                            SizedBox(
-                              width: 20,
-                            ),
                             SmallText(text: "4.5"),
-                            SizedBox(
-                              width: 20,
-                            ),
                             SmallText(text: "1287"),
-                            SizedBox(
-                              width: 20,
-                            ),
                             SmallText(text: "Comments")
                           ],
                         ),
@@ -139,22 +147,17 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                           height: 20,
                         ),
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: const [
                             IconAndTextWidget(
                                 icon: Icons.circle_sharp,
                                 text: "Normal",
                                 iconColor:
                                     const Color.fromARGB(255, 218, 206, 137)),
-                            SizedBox(
-                              width: 25,
-                            ),
                             IconAndTextWidget(
                                 icon: Icons.location_on,
                                 text: "1.7km",
                                 iconColor: const Color(0xFF89dad0)),
-                            SizedBox(
-                              width: 25,
-                            ),
                             IconAndTextWidget(
                                 icon: Icons.access_time_rounded,
                                 text: "32min",
